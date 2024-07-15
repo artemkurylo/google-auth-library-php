@@ -26,11 +26,12 @@ use TypeError;
 /**
  * A cache item.
  *
- * @NOTE (akurylo@box.com) 2024-07-12: We have checks around the for the PHP Version, and if it's higher than version 8, we use the TypedItem class.
- * That being said, there's no possible case when this class would be used.
- * Unfortunately, we need to load this class to memory anyway, so we have to manually add those return types.
- * Otherwise, we would receive a PHP Fatal Error when trying to load this class to memory.
- * Consider migration from fork to the original repository when this class will be removed completely from the google/auth library.
+ * @NOTE (akurylo@box.com) 2024-07-15:
+ * We check the PHP version and use the TypedItem class if it's higher than version 8. As of today, Monolith uses version 8.0.28.
+ * Therefore, this class is never actually used.
+ * Despite this, we must load the class into memory, so we need to manually add return types to methods.
+ * Otherwise, a PHP Fatal Error will occur when trying to autoload the class.
+ * Consider migrating from the fork to the original repository once this class is completely removed from the google/auth library.
  */
 final class Item implements CacheItemInterface
 {
